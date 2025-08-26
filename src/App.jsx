@@ -16,7 +16,7 @@ export default function App() {
   const loadProperties = async () => {
     try {
       const data = await fetchProperties(filters);
-      setProperties(data);
+      setProperties(data.items);
     } catch (error) {
       console.error(error);
     }
@@ -52,9 +52,9 @@ export default function App() {
             className="w-full h-64 object-cover rounded-xl mb-4"
           />
           <h2 className="text-2xl font-bold mb-2">{selectedProperty.name}</h2>
-          <p className="text-gray-600">{selectedProperty.addressProperty}</p>
+          <p className="text-gray-600">{selectedProperty.address}</p>
           <p className="text-indigo-600 text-xl font-semibold mt-2">
-            ${selectedProperty.priceProperty}
+            ${selectedProperty.price}
           </p>
         </div>
       ) : (
